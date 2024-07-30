@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# Aplicación de Tareas
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esta es una aplicación simple de tareas construida con React. Permite a los usuarios agregar, completar y eliminar tareas, así como filtrar tareas según su estado de finalización.
 
-## Available Scripts
+## Características
 
-In the project directory, you can run:
+- Agregar nuevas tareas
+- Marcar tareas como completadas
+- Eliminar tareas
+- Filtrar tareas por todas, activas o completadas
+- Borrar todas las tareas completadas
 
-### `npm start`
+## Instalación
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Clona el repositorio:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+   ```bash
+   git clone https://github.com/tu-usuario/todo-app.git
+   cd todo-app
 
-### `npm test`
+Componentes
+App.js
+Este es el componente principal de la aplicación. Gestiona el estado de la lista de tareas y el filtro activo. También contiene las siguientes funciones:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+addTodo(title): Agrega un nuevo elemento a la lista de tareas.
+handleSetComplete(id): Alterna el estado de completado de una tarea.
+handleDelete(id): Elimina una tarea de la lista.
+handleClearComplete(): Borra todas las tareas completadas.
+showAllTodos(): Establece el filtro activo para mostrar todas las tareas.
+showActiveTodos(): Establece el filtro activo para mostrar solo las tareas activas (incompletas).
+showCompletedTodos(): Establece el filtro activo para mostrar solo las tareas completadas.
+TodoInput.jsx
+Este componente renderiza un campo de entrada donde los usuarios pueden escribir y agregar nuevas tareas. Tiene la siguiente función:
 
-### `npm run build`
+handleTodo(e): Agrega una nueva tarea cuando se presiona la tecla Enter.
+TodoList.jsx
+Este componente renderiza la lista de tareas y los filtros. Recibe props de App.js y utiliza las siguientes funciones:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+handleSetComplete(id): Pasada desde App.js, alterna el estado de completado de una tarea.
+handleDelete(id): Pasada desde App.js, elimina una tarea.
+handleClearComplete(): Pasada desde App.js, borra todas las tareas completadas.
+showAllTodos(): Pasada desde App.js, establece el filtro activo para mostrar todas las tareas.
+showActiveTodos(): Pasada desde App.js, establece el filtro activo para mostrar solo las tareas activas (incompletas).
+showCompletedTodos(): Pasada desde App.js, establece el filtro activo para mostrar solo las tareas completadas.
+Todo.jsx
+Este componente renderiza una sola tarea. Recibe props de TodoList.jsx y utiliza las siguientes funciones:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+handleSetComplete(id): Pasada desde TodoList.jsx, alterna el estado de completado de una tarea.
+handleDelete(id): Pasada desde TodoList.jsx, elimina una tarea.
+TodoFilters.jsx
+Este componente renderiza los botones de filtro y el botón de borrar completadas. Recibe props de TodoList.jsx y utiliza las siguientes funciones:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+showAllTodos(): Pasada desde TodoList.jsx, establece el filtro activo para mostrar todas las tareas.
+showActiveTodos(): Pasada desde TodoList.jsx, establece el filtro activo para mostrar solo las tareas activas (incompletas).
+showCompletedTodos(): Pasada desde TodoList.jsx, establece el filtro activo para mostrar solo las tareas completadas.
+handleClearComplete(): Pasada desde TodoList.jsx, borra todas las tareas completadas.
+Uso
+Abre la aplicación en tu navegador.
+Escribe una nueva tarea en el campo de entrada y presiona Enter para agregarla a la lista.
+Haz clic en el círculo junto a una tarea para marcarla como completa o incompleta.
+Haz clic en la "X" junto a una tarea para eliminarla.
+Usa los botones de filtro para mostrar todas las tareas, solo las tareas activas o solo las tareas completadas.
+Haz clic en "Borrar Completadas" para eliminar todas las tareas completadas de la lista.
+Contribuciones
+Siéntete libre de bifurcar el repositorio y enviar pull requests. ¡Cualquier contribución es bienvenida!
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Licencia
+Este proyecto está licenciado bajo la Licencia MIT.
