@@ -1,21 +1,26 @@
-import { FiltersButton, FiltersButtonContainer, FiltersContainer, ItemsLeft } from "./TodoFilters.components"
+import { FiltersButton, FiltersButtonContainer, FiltersContainer, ItemsLeft } from "./TodoFilters.components";
 
-const TodoFilters = () => {
-    return(
+const TodoFilters = ({
+    total,
+    activeFilter = '', // Valor por defecto como cadena vacía
+    showAllTodos, 
+    showActiveTodos, 
+    showCompletedTodos, 
+    handleClearComplete
+}) => {
+    return (
         <FiltersContainer> 
-            <ItemsLeft />
+            <ItemsLeft total={total} />
             <FiltersButtonContainer>
-                <FiltersButton  action={()=> {}} active="All" filter='All'/>
-                <FiltersButton  action={()=> {}} active="All" filter='Active'/>
-                <FiltersButton  action={()=> {}} active="All" filter='Completed'/>
+                <FiltersButton action={() => showAllTodos()} active={activeFilter} filter='All' />
+                <FiltersButton action={() => showActiveTodos()} active={activeFilter} filter='Active' />
+                <FiltersButton action={() => showCompletedTodos()} active={activeFilter} filter='Completed' />
             </FiltersButtonContainer>
-
-            <button className="text-gray-400 hover:text-white cursor-pointer transition-all duration-300 ease-in">
+            <button onClick={() => handleClearComplete()} className="text-gray-400 hover:text-white cursor-pointer transition-all duration-300 ease-in">
                 Clear Completed
             </button>
         </FiltersContainer> 
-    )
-
+    );
 }
 
-export { TodoFilters }
+export { TodoFilters };
